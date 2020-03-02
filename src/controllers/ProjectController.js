@@ -10,13 +10,13 @@ module.exports = {
   async store(req,res){
     const { id, title, tasks } = req.body;
 
-    let project = await User.findOne({ title });
+    let project = await Project.findOne({ title });
 
     if(project)
       return res.status(400).json({ error: 'Project already exits.'});
 
     if(!project)
-      project = await User.create({
+      project = await Project.create({
         id,
         title,
         tasks,
