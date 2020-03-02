@@ -8,7 +8,7 @@ module.exports = {
     return res.json({ message: 'Hello World'})
   },
   async store(req,res){
-    const { title, task } = req.body;
+    const { id, title, tasks } = req.body;
 
     let project = await User.findOne({ title });
 
@@ -17,6 +17,7 @@ module.exports = {
 
     if(!project)
       project = await User.create({
+        id,
         title,
         tasks,
       });
