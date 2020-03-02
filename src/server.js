@@ -16,6 +16,12 @@ mongoose.connect(
 });
 
 server.use(express.json());
+
+server.use(function(req, res, next){ 
+  console.count("Requests");
+  next();
+});
+
 server.use(router);
 
 server.listen(3000);
