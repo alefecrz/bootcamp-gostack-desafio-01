@@ -15,6 +15,7 @@ mongoose.connect(
   useUnifiedTopology: true,
 });
 
+server.use(express.json());
 server.use(router);
 
 server.listen(3000);
